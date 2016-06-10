@@ -1,4 +1,7 @@
 ---
+- name: Include OS-specific variables.
+  include_vars: "CentOS.yml"
+
 - name: Ensure redis is installed.
   yum: name=redis state=installed enablerepo=epel
   

@@ -6,10 +6,10 @@
 - name: Set global ServerName for apache config
   lineinfile: dest=/etc/httpd/conf/httpd.conf line="ServerName localhost"
 
-- name: SELinux to enforcing
-  command: /sbin/setenforce 0
-  notify:
-    - restart httpd
+#- name: SELinux to enforcing
+#  command: /sbin/setenforce 0
+#  notify:
+#    - restart httpd
 
 - name: Ensure Apache running
   service: name=httpd state=started enabled=yes
