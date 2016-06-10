@@ -4,3 +4,6 @@
 # used in apache vhost configuration files
 doc_root: /var/www/html
 hostname: vagrantbox
+
+vhost_hostname: www.example.comm
+vhost_doc_root: /var/www/www.example.com

@@ -6,6 +6,12 @@
 - name: Set global ServerName for apache config
   lineinfile: dest=/etc/httpd/conf/httpd.conf line="ServerName localhost"
 
+- name: Set Vhost site
+  lineinfile: dest=/etc/httpd/conf/httpd.conf line="include sites-enable/*.conf"
+
+- name: Copy vhost template
+  template: src=vhost.tpl dest=/etc/httpd/sites-enable/www.example.com.conf
+  
 #- name: SELinux to enforcing
 #  command: /sbin/setenforce 0
 #  notify:
