@@ -1,0 +1,33 @@
+# file: roles/init/tasks/main.yml
+---
+
+- name: Set up firewall
+  shell: systemctl enable firewalld
+
+- name: Start the firewall
+  shell: systemctl start firewalld
+
+- name: Install remi repo.
+  yum:
+    name: "{{ remi_repo_url }}"
+    state: present
+
+- name: Import remi GPG key.
+  rpm_key:
+    key: "{{ remi_repo_gpg_key_url }}"
+    state: present
+
+- name: Update Yum
+  yum: name=* state=latest
+
+- name: Install nano, git, etc
+  yum: pkg={{ item }} state=installed
+  with_items:
+     - git
+     - curl
+     - gcc
+     - kernel-devel
+     - wget
+     - vim
+     - man
+     - unzip
