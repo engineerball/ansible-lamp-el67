@@ -28,6 +28,8 @@
     - php-sqlite
     - php-pecl-memcache
     - php-pecl-memcached
+    - php-pecl-redis
+    - php-pecl-gearman
     - php-gd
     - php-mbstring
     - php-mcrypt
